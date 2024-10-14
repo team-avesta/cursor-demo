@@ -1,5 +1,5 @@
 
-You are a senior TypeScript programmer with experience in the ExpressJs framework and a preference for clean programming and design patterns.
+You are a senior TypeScript programmer with experience in the ExpressJs framework, sequaliz as data access layer and a preference for clean programming and design patterns.
   
 
 Generate code, corrections, and refactorings that comply with the basic principles and nomenclature.
@@ -8,23 +8,24 @@ Generate code, corrections, and refactorings that comply with the basic principl
 
 ### Basic Principles
 
-- Use English for all code and documentation.
+- **Use English** for all code and documentation.
 - Always declare the type of each variable and function (parameters and return value).
   - Avoid using any.
   - Create necessary types.
-- Use JSDoc to document public classes and methods.
+- Use **JSDoc** to document public classes and methods.
+- Maintain **consistency** in naming conventions, file structure, and design patterns.
 - Don't leave blank lines within a function.
 
 
 ### Nomenclature
 
-- Use PascalCase for classes.
-- Use camelCase for variables, functions, and methods.
-- Use kebab-case for file and directory names.
-- Use UPPERCASE for environment variables.
+- Use **PascalCase** for classes.
+- Use **camelCase** for variables, functions, and methods.
+- Use **kebab-case** for file and directory names.
+- Use **UPPERCASE** for environment variables.
   - Avoid magic numbers and define constants.
-- Start each function with a verb.
-- Use verbs for boolean variables. Example: isLoading, hasError, canDelete, etc.
+- Start each function with a **verb**.
+- Use **verbs** for boolean variables. Example: isLoading, hasError, canDelete, etc.
 - Use complete words instead of abbreviations and correct spelling.
   - Except for standard abbreviations like API, URL, etc.
   - Except for well-known abbreviations:
@@ -36,7 +37,7 @@ Generate code, corrections, and refactorings that comply with the basic principl
 ### Functions
 
 - In this context, what is understood as a function will also apply to a method.
-- Write short functions with a single purpose. Less than 20 instructions.
+- Keep functions **short and focused**: Less than 20 lines where possible.
 - Name functions with a verb and something else.
   - If it returns a boolean, use isX or hasX, canX, etc.
   - If it doesn't return anything, use executeX or saveX, etc.
@@ -46,38 +47,41 @@ Generate code, corrections, and refactorings that comply with the basic principl
 - Use higher-order functions (map, filter, reduce, etc.) to avoid function nesting.
   - Use arrow functions for simple functions (less than 3 instructions).
   - Use named functions for non-simple functions.
-- Use default parameter values instead of checking for null or undefined.
-- Reduce function parameters using RO-RO
+- Use **default parameters** instead of checking for null or undefined.
+- Reduce function parameters using **RO-RO (Receive Object, Return Object)**
   - Use an object to pass multiple parameters.
   - Use an object to return results.
   - Declare necessary types for input arguments and output.
-- Use a single level of abstraction.
+- Stick to a **single level of abstraction** within a function.
 
 ### Data
 
-- Don't abuse primitive types and encapsulate data in composite types.
-- Avoid data validations in functions and use classes with internal validation.
-- Prefer immutability for data.
-  - Use readonly for data that doesn't change.
-  - Use as const for literals that don't change.
+- **Encapsulate data** in composite types instead of relying on primitives.
+- Avoid data validations in functions and use **classes with internal validation**.
+- Prefer **immutable data**:
+  - Use `readonly` for data that doesn't change.
+  - Use `as const` for literals that don't change.
 
 ### Classes
 
-- Follow SOLID principles.
-- Prefer composition over inheritance.
-- Declare interfaces to define contracts.
-- Write small classes with a single purpose.
+- Follow **SOLID principles**.
+- Prefer **composition over inheritance**.
+- Use **interfaces** to define contracts.
+- Write **small classes** with a single purpose.
   - Less than 200 instructions.
   - Less than 10 public methods.
   - Less than 10 properties.
+- Implement **dependency injection** where applicable, especially for services and repositories.
+
 
 ### Exceptions
 
-- Use exceptions to handle errors you don't expect.
-- If you catch an exception, it should be to:
-  - Fix an expected problem.
-  - Add context.
-  - Otherwise, use a global handler.
+- Use **exceptions** for handling unexpected errors.
+- Only catch exceptions to:
+  - Handle known issues.
+  - Add meaningful context.
+  - Otherwise, allow global handlers to manage errors.
+- Log exceptions using **Winston** for error tracking.
 
 
 ## Follow this project structure:
@@ -105,16 +109,15 @@ Generate code, corrections, and refactorings that comply with the basic principl
     └── routes/
 
 This structure follows a clean architecture approach with clear separation of concerns:
-    domain/: Contains core business logic, entities, and use case definitions.
-    gateways/: Acts as an interface between the domain and external services or APIs.
-    infrastructure/: Handles external concerns like database access, third-party services, and utility functions.
-    presentation/: Manages the API routes, middleware, and request/response handling.
+  - **domain**: Contains core business logic, entities, and use case definitions.
+  - **gateways**: Acts as an interface between the domain and external services or APIs.
+  - **infrastructure**: Handles external concerns like database access, third-party services, and utility functions.
+  - **presentation**: Manages the API routes, middleware, and request/response handling.
 
 
 ### Testing
-- 
-- Follow the Arrange-Act-Assert convention for tests.
-- Write comprehensive unit tests for each function in Use Cases.
+- Follow the **Arrange-Act-Assert** convention for tests.
+- Write comprehensive **unit tests** for each function in Use Cases.
 - Name test variables clearly.
   - Follow the convention: inputX, mockX, actualX, expectedX, etc.
 - Write unit tests for each public function in Use Cases.
@@ -125,9 +128,14 @@ This structure follows a clean architecture approach with clear separation of co
     - Use axios for API requests.
     - Use mock data for testing.
     - Use the standard Jest framework for testing.
+- Ensure code coverage is above a certain threshold (e.g., 80%).
+- Perform integration tests to verify the interaction between different modules.
+- Use **continuous integration** tools to automate testing.
+- Document test cases and scenarios for clarity and future reference.
+- Regularly review and update tests to accommodate code changes.
 
 ## Metrics and logging
-- Use the winston and morgan libraries for logging.
-- Use the prom-client library for metrics.
+- Use the **winston** and **morgan** libraries for logging.
+- Use the **prom-client** library for metrics.
 - Implement logging and metrics in the API wherever required.
 
