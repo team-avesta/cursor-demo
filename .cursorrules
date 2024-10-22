@@ -105,15 +105,19 @@ Generate code, corrections, and refactorings that comply with the basic principl
 │   │       └── models/
 │   └── utils/
 └── presentation/
-    ├── middleware/
-    └── routes/
+│   ├── middleware/
+│   └── routes/
+├── tests/
+│   ├── e2e/
+│   ├── integration/
+│   └── acceptance/
 
 This structure follows a clean architecture approach with clear separation of concerns:
   - **domain**: Contains core business logic, entities, and use case definitions.
   - **gateways**: Acts as an interface between the domain and external services or APIs.
   - **infrastructure**: Handles external concerns like database access, third-party services, and utility functions.
   - **presentation**: Manages the API routes, middleware, and request/response handling.
-
+  - **tests**: Contains the test cases like end-to-end, integration and acceptance for the project.
 
 ### Testing
 - Follow the **Arrange-Act-Assert** convention for tests.

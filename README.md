@@ -18,7 +18,7 @@ This project serves as a practical example of how AI-assisted development can be
 
 To run the project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/cursor-demo.git
+1. Clone the repository: `git clone https://github.com/team-avesta/cursor-demo.git
 cd cursor-demo  `
 
 2. Install dependencies: `npm install  `
